@@ -3,6 +3,13 @@ var fs = require('fs');
 const path = require('path');
 
 
+// Tạo file
+fs.writeFile('sinhvien.json',`[{"name":"Minh","age":21}]`,function(err){
+    if(err) throw err
+    console.log('new file OK');
+    
+})
+
 // Đọc file
 fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
     const dataConvert= JSON.parse(data)
