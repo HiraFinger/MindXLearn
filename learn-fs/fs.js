@@ -15,7 +15,13 @@ fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
     const dataConvert= JSON.parse(data)
     console.log("Danh sách học sinh:", dataConvert);
 
-    // Thêm SV
+})
+
+// Thêm SV
+fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
+    const dataConvert= JSON.parse(data)
+    // console.log("Danh sách học sinh:", dataConvert);
+
     dataConvert.push({name:"Minh", age:21})
     dataAdd=JSON.stringify(dataConvert);
 
@@ -23,8 +29,13 @@ fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
         if (err) return console.log(err);
         console.log("===Success===");
     });
+})
 
-    // Sửa SV theo tên
+// Sửa SV theo tên
+fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
+    const dataConvert= JSON.parse(data)
+    // console.log("Danh sách học sinh:", dataConvert);
+
     dataUpdate={name:"abc", age:"30"};
     for(const student in dataConvert){
         if(dataConvert[student].name===dataUpdate.name){
@@ -37,8 +48,13 @@ fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
             });
         }
     }
+})
 
-    // Xóa SV theo tên (comment hết các hàm sửa SV, thêm SV, sửa file và xóa file mới dùng được)
+// Xóa SV theo tên
+fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
+    const dataConvert= JSON.parse(data)
+    // console.log("Danh sách học sinh:", dataConvert);
+
     const dataDelete={name:"cde"}
     for(const student in dataConvert){
         if(dataConvert[student].name===dataDelete.name){
@@ -53,11 +69,9 @@ fs.readFile(path.resolve(__dirname, 'student.json'), 'utf8', (err, data) => {
             });
         }
     }
-
 })
 
 // Chỉnh sửa file (Nối thêm vào đuôi file)
-
 fs.appendFile(path.resolve(__dirname, 'student.json'), 'appendFile test', function (err) {
     if (err) throw err;
     console.log('Saved!');
