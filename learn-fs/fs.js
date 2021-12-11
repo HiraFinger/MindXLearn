@@ -4,10 +4,10 @@ const path = require('path');
 const uuid= require('uuid');
 
 
-const newStudent2={
-    name:"Minh",
-    age:21
-}
+// const newStudent={
+//     name:"Minh",
+//     age:21
+// }
 
 // Lấy dữ liệu từ file
 const getAll= async() =>{
@@ -50,37 +50,50 @@ const addNewStudent=async(newStudent)=>{
     }
 }
 
-addNewStudent(newStudent2)
+// addNewStudent(newStudent)
 // Tìm sv bằng id
-const findUserById=(allUser,idUser)=> allUser.finIndex(({id})=> id===idUser)
+const findUserById=(allUser,idUser)=> allUser.findIndex(({id})=> id===idUser)
 
 // Sửa thông tin sinh viên
-const updateStudent= async (id, student)=>{
+const updateStudent= async (student)=>{
     try{
-        const {id, ...dataUpdate}=student;
-        if(!id){
-            throw new Error("User not found!")
+        const {id: userId, ...dataUpdate}=student;
+        if(!userId){
+            throw new Error("Id is required")
         }
         const allUser=await getAll();
-        const newData=allUser.map(user=>{
-            if(user.id===userId){
-                return{
-                    ...user,
-                    ...dataUpdate
-                }
-            }
-        })
-        await writeData(newData)
+
+        const indexUser=findUserById(allUser, userId);
+        if(indexUser===-1) throw new Error("User not found")
+
+        allUser[indexUser]={
+            ...allUser[indexUser],
+            ...dataUpdate
+        }
+        
+        // const newData=allUser.map(user=>{
+        //     if(user.id===userId){
+        //         return{
+        //             ...user,
+        //             ...dataUpdate
+        //         }
+        //     }
+        // })
+        await writeData(allUser)
     }
-    catch{
-        throw(err)
+    catch(err){
+        console.log("err", err)
     }
 };
 
-// const main=()=>{
-//     getAll();
-// };
-// main();
+const main=()=>{
+    const newStudent={
+        age:21,
+        "id":"6d0b306d-9e67-4b0b-9223-439d4afe9ced"
+    }
+    updateStudent(newStudent)
+};
+main();
 // // Tạo file
 // fs.writeFile('student.json',`[{"name":"Minh","age":21}]`,function(err){
 //     if(err) throw err
