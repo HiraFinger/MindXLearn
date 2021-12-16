@@ -1,10 +1,10 @@
 # Bài tập về nhà buổi 3
 ## CRUD student
-http://localhost:3000/student/all : Hiển thị danh sách sinh viên
-http://localhost:3000/student/add : Thêm SV
-http://localhost:3000/student/delete : Xóa SV theo id
-http://localhost:3000/student/update : Chỉnh sửa thông tin SV theo id
-http://localhost:3000/student/find : Tìm kiếm SV và hiển thị thông tin SV theo id
+-   http://localhost:3000/student/all : Hiển thị danh sách sinh viên
+-   http://localhost:3000/student/add : Thêm SV
+-   http://localhost:3000/student/delete : Xóa SV theo id
+-   http://localhost:3000/student/update : Chỉnh sửa thông tin SV theo id
+-   http://localhost:3000/student/find : Tìm kiếm SV và hiển thị thông tin SV theo id
 
 ## RESTful là gì?
 - **API**: là phương thức, giao kết nối các thư viện và ứng dụng. Nó cung cấp các khả năng cung cấp và truy xuất dữ liệu đến một tập các hàm hay dùng. Trong website thì API cho phép ta kết nối và cập nhật dữ liệu từ backend và frontend.
