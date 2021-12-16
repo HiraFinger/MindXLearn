@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { addNewStudent, getAll, deleteStudent, updateStudent } = require("../controllers/studentController");
+const { addNewStudent, getAll, deleteStudent, updateStudent, findStudent} = require("../controllers/studentController");
 
 
 let studentRouter = express.Router();
@@ -20,8 +20,8 @@ studentRouter.delete("/delete", async (req, res) => {
   res.send(await deleteStudent({id:"bde6e6d0-67d9-45ff-8226-fd6168a5afa7"}));
 });
 
-studentRouter.put("/", (req, res) => {
-  res.send("edit student");
+studentRouter.get("/find", async (req, res) => {
+  res.send(await findStudent({id:"bde6e6d0-67d9-45ff-8226-fd6168a5afa7"}));
 });
 
 module.exports = studentRouter;

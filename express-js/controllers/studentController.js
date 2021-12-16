@@ -41,8 +41,23 @@ const addNewStudent = async (newStudent) => {
 };
 
 const findUserById = (allUser, idUser) => allUser.findIndex(({ id }) => id === idUser);
+const findStudent= async(idStudent)=>{
+  try{
+    const { id: userId,...dataStudent} = idStudent;
+    if (!userId) {
+      throw new Error("Id is required");
+    }
+    const allStudent = await getAll();
+    const indexStudent = findUserById(allStudent, userId);
+    if (indexStudent === -1) throw new Error("User not found");
+    return JSON.stringify(allStudent[indexStudent])
+  }
+  catch (err) {
+    console.log("err", err);
+  }
+}
 
-// Sửa thông tin sinh viên
+
 const updateStudent = async (student) => {
   try {
     const { id: userId, ...dataUpdate } = student;
@@ -86,3 +101,4 @@ module.exports.getAll = getAll;
 module.exports.addNewStudent = addNewStudent;
 module.exports.updateStudent = updateStudent;
 module.exports.deleteStudent = deleteStudent;
+module.exports.findStudent = findStudent;
