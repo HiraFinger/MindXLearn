@@ -1,0 +1,21 @@
+.expense-filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    margin: 1rem;
+
+}
+.expense-filter select{
+    padding: 0.5rem 3rem;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.expense-nodata{
+    /* display: flex; */
+    text-align: center;
+    padding: 1px;
+    color: #fff;
+    align-items: center;
+}
