@@ -1,0 +1,11 @@
+{
+    "welcome_message":{
+        "vi":"Chào mừng đến với trang web của chúng tôi",
+        "en":"Welcome to our website"
+    },
+    "username_label":{
+        "vi":"Xin hãy điền tên người dùng",
+        "en":"Please enter your username"
+    }
+
+}

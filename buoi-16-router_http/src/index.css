@@ -1,0 +1,9 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+.nav-link-active {
+    background-color: blue;
+    color: #fff;
+}
